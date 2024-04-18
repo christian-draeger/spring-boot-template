@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1654177872788-1
+      author: cdraeger
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_greeting
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: created
+                  type: DATETIME
+              - column:
+                  name: updated
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: message
+                  type: VARCHAR(255)
+            tableName: greeting

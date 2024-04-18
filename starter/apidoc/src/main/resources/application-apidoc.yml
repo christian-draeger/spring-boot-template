@@ -1,0 +1,11 @@
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    use-root-path: true
+    path: /swagger-ui.html
+    try-it-out-enabled: true
+    display-request-duration: true
+    show-extensions: true
+    show-common-extensions: true
+    disable-swagger-default-url: true

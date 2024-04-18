@@ -1,0 +1,39 @@
+spring:
+  application.name: backend
+  mvc.static-path-pattern: /api/**
+  docker.compose.file: "../compose.yaml"
+
+  jpa:
+    hibernate.ddl-auto: create # set to "validate" if liquibase enabled
+    show-sql: false
+    properties.hibernate:
+      max_fetch_depth: 3
+      default_batch_fetch_size: 100
+      jdbc.lob.non_contextual_creation: true
+  liquibase:
+    change-log: classpath:/db/master-changelog.xml
+    enabled: false
+
+server:
+  port: 8080
+  shutdown: graceful # k8s optimization --> try to graceful shutdown on pod restart
+  error:
+    include-binding-errors: never
+    include-message: never
+  max-http-request-header-size: 100KB  # tomcat default=8kb, not enough for e.g. really large JWT tokens
+
+dv:
+  swagger:
+    enabled: true
+    api-title: "My Custom API"
+    api-version: "2.0.0"
+    api-groups:
+      Greeting API V1: "/api/greeting/v1/**"
+  logger:
+   enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
