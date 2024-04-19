@@ -1,7 +1,7 @@
 spring:
   application.name: backend
   mvc.static-path-pattern: /api/**
-  docker.compose.file: "../compose.yaml"
+  docker.compose.file: "../compose.yml"
 
   jpa:
     hibernate.ddl-auto: create # set to "validate" if liquibase enabled

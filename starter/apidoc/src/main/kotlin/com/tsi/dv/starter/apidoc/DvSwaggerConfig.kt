@@ -44,6 +44,7 @@ open class DvSwaggerConfig(
 
     @Bean("dvSwaggerApiGroups")
     open fun apis(): List<GroupedOpenApi> {
+        logger.info { "###########" + properties.apiGroups?.entries }
         return properties.apiGroups?.entries?.map {
             GroupedOpenApi.builder()
                 .group(it.key)
